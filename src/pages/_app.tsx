@@ -3,6 +3,7 @@ import { AppProps } from 'next/app'
 import emotionCache from '../lib/emotion-cache'
 import { CacheProvider } from '@emotion/react'
 import NextProgress from 'nextjs-progressbar'
+import { ColorModeScript } from '@chakra-ui/react'
 
 import { useQuery, QueryClient, QueryClientProvider } from 'react-query'
 
@@ -43,6 +44,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
                   height={2}
                 />
                 <SidebarDrawerProvider>
+                  <ColorModeScript initialColorMode="light" />
                   <ChakraProvider resetCSS theme={theme}>
                     <Layout>
                       <Component {...pageProps} />
