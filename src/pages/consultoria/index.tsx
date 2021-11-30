@@ -1,17 +1,18 @@
 import { NextPage } from 'next'
 import { Flex, Spinner } from '@chakra-ui/react'
+import HomeDefault from '../../shared/components/HomeDefault'
+
+import iconFeature from '../../../public/images/icon-feature.svg'
 
 const Consultancy: NextPage = () => {
   return (
-    <Flex w="100%" maxW="100vw" h="100vh" justify="center" align="center">
-      <Spinner
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="pink.900"
-        size="xl"
-      />
-    </Flex>
+    <HomeDefault
+      buttonText="Quero que a bits faça meu Legal Design"
+      title="Consultoria"
+      icon={iconFeature}
+      description="Tenha um Jurídico estratégico.
+   Aplique o Legal Design e traga mais resultados para a empresa."
+    />
   )
 }
 

@@ -1,5 +1,3 @@
-import { NextPage } from 'next'
-
 import {
   Flex,
   Text,
@@ -10,21 +8,32 @@ import {
   HTMLChakraProps,
 } from '@chakra-ui/react'
 
-import Reveal from 'react-reveal/Reveal'
-
-import TrainningIconPage from '../TrainningIconPage'
-
-type Merge<P, T> = Omit<P, keyof T> & T
-type MotionProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
-
 import { HTMLMotionProps, motion, AnimatePresence } from 'framer-motion'
+import { NextPage } from 'next'
+
+import Reveal from 'react-reveal'
 
 export const MotionHeading: NextPage<MotionProps> = motion(Heading)
 const MotionText: NextPage<MotionProps> = motion(Text)
 const MotionButton: NextPage<MotionProps> = motion(Button)
 const MotionIcon: NextPage<MotionProps> = motion(Icon)
 
-export default function HomeScreenTrainning() {
+type Merge<P, T> = Omit<P, keyof T> & T
+type MotionProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
+
+interface IHomeDefaultProps {
+  title: string
+  icon?: any
+  description: string
+  buttonText: string
+}
+
+export default function HomeDefault({
+  title,
+  icon,
+  description,
+  buttonText,
+}: IHomeDefaultProps) {
   return (
     <Flex
       w="100%"
@@ -53,7 +62,9 @@ export default function HomeScreenTrainning() {
               exit={{ y: '-3000vh', opacity: 0 }}
               transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
               mx="auto"
-              as={TrainningIconPage}
+              h="100%"
+              w="100%"
+              as={icon}
             ></MotionIcon>
           </Reveal>
           <MotionHeading
@@ -68,7 +79,7 @@ export default function HomeScreenTrainning() {
             exit={{ y: '-3000vh', opacity: 0 }}
             transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
           >
-            Treinamentos
+            {title}
           </MotionHeading>
         </Flex>
         <MotionText
@@ -102,11 +113,10 @@ export default function HomeScreenTrainning() {
           exit={{ y: '-3000vh', opacity: 0 }}
           transition={{ type: 'spring', duration: 2.5, bounce: 0.3 }}
         >
-          Treinamos seu time para que sejam capazes de criar documentos que
-          geram mais resultados por serem mais amigáveis aos usuários.
+          {description}
         </MotionText>
         <MotionButton
-          w="182px"
+          w="290px"
           h="50px"
           bgColor="pink.900"
           color="white"
@@ -118,7 +128,7 @@ export default function HomeScreenTrainning() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
         >
-          Quero treinar meu time
+          {buttonText}
         </MotionButton>
       </Flex>
     </Flex>

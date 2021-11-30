@@ -24,7 +24,6 @@ import 'swiper/css/scrollbar'
 
 import { CookieConsentProvider } from '../contexts/CookieConsent'
 import { ViewportProvider } from '../contexts/ViewContext'
-import { AnimateSharedLayout } from 'framer-motion'
 
 const queryClient = new QueryClient()
 

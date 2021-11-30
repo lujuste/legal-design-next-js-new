@@ -169,3 +169,14 @@ div.css-34q6yt {
     height: 650px !important;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  header {
+    background-color: white;
+  }
+}
